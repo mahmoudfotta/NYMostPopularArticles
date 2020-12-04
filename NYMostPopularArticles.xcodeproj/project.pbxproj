@@ -17,6 +17,10 @@
 		0D0D5A6D257A94D200A27FF0 /* NYMostPopularArticlesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D5A6C257A94D200A27FF0 /* NYMostPopularArticlesUITests.swift */; };
 		0D0D5A91257A9B4600A27FF0 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D5A8F257A9B4600A27FF0 /* ArticleCell.swift */; };
 		0D0D5A92257A9B4600A27FF0 /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0D5A90257A9B4600A27FF0 /* ArticleCell.xib */; };
+		0D0D5A9C257AA1D300A27FF0 /* RemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D5A9B257AA1D300A27FF0 /* RemoteService.swift */; };
+		0D0D5AA8257AA8F100A27FF0 /* ArticlesClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D5AA7257AA8F100A27FF0 /* ArticlesClient.swift */; };
+		0D0D5AAD257AAC0300A27FF0 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D5AAC257AAC0300A27FF0 /* Article.swift */; };
+		0D0D5AB2257AACB300A27FF0 /* ArticlesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D5AB1257AACB300A27FF0 /* ArticlesResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		0D0D5A6E257A94D200A27FF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D0D5A8F257A9B4600A27FF0 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		0D0D5A90257A9B4600A27FF0 /* ArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
+		0D0D5A9B257AA1D300A27FF0 /* RemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteService.swift; sourceTree = "<group>"; };
+		0D0D5AA7257AA8F100A27FF0 /* ArticlesClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesClient.swift; sourceTree = "<group>"; };
+		0D0D5AAC257AAC0300A27FF0 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		0D0D5AB1257AACB300A27FF0 /* ArticlesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +139,7 @@
 			children = (
 				0D0D5A8A257A984F00A27FF0 /* Resources */,
 				0D0D5A82257A97A100A27FF0 /* AppDelegates */,
+				0D0D5A9A257AA15F00A27FF0 /* Networking */,
 				0D0D5A81257A977000A27FF0 /* MostPopular */,
 			);
 			path = App;
@@ -139,6 +148,7 @@
 		0D0D5A81257A977000A27FF0 /* MostPopular */ = {
 			isa = PBXGroup;
 			children = (
+				0D0D5A99257AA14500A27FF0 /* APIService */,
 				0D0D5A89257A982C00A27FF0 /* Model */,
 				0D0D5A88257A982200A27FF0 /* Presenter */,
 				0D0D5A87257A981900A27FF0 /* View */,
@@ -183,6 +193,8 @@
 		0D0D5A89257A982C00A27FF0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0D0D5AB1257AACB300A27FF0 /* ArticlesResponse.swift */,
+				0D0D5AAC257AAC0300A27FF0 /* Article.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,6 +216,22 @@
 				0D0D5A90257A9B4600A27FF0 /* ArticleCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		0D0D5A99257AA14500A27FF0 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				0D0D5AA7257AA8F100A27FF0 /* ArticlesClient.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		0D0D5A9A257AA15F00A27FF0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0D0D5A9B257AA1D300A27FF0 /* RemoteService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,10 +365,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D0D5AAD257AAC0300A27FF0 /* Article.swift in Sources */,
 				0D0D5A91257A9B4600A27FF0 /* ArticleCell.swift in Sources */,
+				0D0D5A9C257AA1D300A27FF0 /* RemoteService.swift in Sources */,
 				0D0D5A4F257A94D100A27FF0 /* MostPopularController.swift in Sources */,
 				0D0D5A4B257A94D100A27FF0 /* AppDelegate.swift in Sources */,
 				0D0D5A4D257A94D100A27FF0 /* SceneDelegate.swift in Sources */,
+				0D0D5AA8257AA8F100A27FF0 /* ArticlesClient.swift in Sources */,
+				0D0D5AB2257AACB300A27FF0 /* ArticlesResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
