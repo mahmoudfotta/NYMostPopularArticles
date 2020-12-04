@@ -11,7 +11,7 @@ class ArticlesClient {
     let remoteService: RemoteService
     let mostPopularRequest: URLRequest = URLRequest(url: URL(string: "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=TCmkGAe5GGdkPznMj33vGGwJxv8rQ3np")!)
     
-    init(remoteService: RemoteService) {
+    init(remoteService: RemoteService = .shared) {
         self.remoteService = remoteService
     }
     
