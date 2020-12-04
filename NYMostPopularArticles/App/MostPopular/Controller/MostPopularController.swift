@@ -57,6 +57,9 @@ extension MostPopularController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let article = articles[indexPath.row]
+        let detailsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ArticleDetailsController") as! ArticleDetailsController
+        detailsController.article = article
+        navigationController?.pushViewController(detailsController, animated: true)
     }
 }

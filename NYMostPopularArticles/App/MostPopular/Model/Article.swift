@@ -11,10 +11,11 @@ struct Article: Decodable {
     var title: String?
     var byline: String?
     var publishedDate: String?
+    var subsection: String?
+    var abstract: String?
     
     enum CodingKeys: String, CodingKey {
-        case title, byline
+        case title, byline, subsection, abstract
         case publishedDate = "published_date"
     }
-    
 }
