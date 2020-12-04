@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D0D5A4B257A94D100A27FF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D5A4A257A94D100A27FF0 /* AppDelegate.swift */; };
 		0D0D5A4D257A94D100A27FF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D5A4C257A94D100A27FF0 /* SceneDelegate.swift */; };
-		0D0D5A4F257A94D100A27FF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D5A4E257A94D100A27FF0 /* ViewController.swift */; };
+		0D0D5A4F257A94D100A27FF0 /* MostPopularController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0D5A4E257A94D100A27FF0 /* MostPopularController.swift */; };
 		0D0D5A52257A94D100A27FF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0D5A50257A94D100A27FF0 /* Main.storyboard */; };
 		0D0D5A54257A94D100A27FF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0D5A53257A94D100A27FF0 /* Assets.xcassets */; };
 		0D0D5A57257A94D100A27FF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D0D5A55257A94D100A27FF0 /* LaunchScreen.storyboard */; };
@@ -38,7 +38,7 @@
 		0D0D5A47257A94D100A27FF0 /* NYMostPopularArticles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYMostPopularArticles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0D5A4A257A94D100A27FF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D0D5A4C257A94D100A27FF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0D0D5A4E257A94D100A27FF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0D0D5A4E257A94D100A27FF0 /* MostPopularController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularController.swift; sourceTree = "<group>"; };
 		0D0D5A51257A94D100A27FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D0D5A53257A94D100A27FF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D0D5A56257A94D100A27FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,13 +99,7 @@
 		0D0D5A49257A94D100A27FF0 /* NYMostPopularArticles */ = {
 			isa = PBXGroup;
 			children = (
-				0D0D5A4A257A94D100A27FF0 /* AppDelegate.swift */,
-				0D0D5A4C257A94D100A27FF0 /* SceneDelegate.swift */,
-				0D0D5A4E257A94D100A27FF0 /* ViewController.swift */,
-				0D0D5A50257A94D100A27FF0 /* Main.storyboard */,
-				0D0D5A53257A94D100A27FF0 /* Assets.xcassets */,
-				0D0D5A55257A94D100A27FF0 /* LaunchScreen.storyboard */,
-				0D0D5A58257A94D100A27FF0 /* Info.plist */,
+				0D0D5A7D257A96A600A27FF0 /* App */,
 			);
 			path = NYMostPopularArticles;
 			sourceTree = "<group>";
@@ -126,6 +120,76 @@
 				0D0D5A6E257A94D200A27FF0 /* Info.plist */,
 			);
 			path = NYMostPopularArticlesUITests;
+			sourceTree = "<group>";
+		};
+		0D0D5A7D257A96A600A27FF0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0D0D5A8A257A984F00A27FF0 /* Resources */,
+				0D0D5A82257A97A100A27FF0 /* AppDelegates */,
+				0D0D5A81257A977000A27FF0 /* MostPopular */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0D0D5A81257A977000A27FF0 /* MostPopular */ = {
+			isa = PBXGroup;
+			children = (
+				0D0D5A89257A982C00A27FF0 /* Model */,
+				0D0D5A88257A982200A27FF0 /* Presenter */,
+				0D0D5A87257A981900A27FF0 /* View */,
+				0D0D5A86257A980F00A27FF0 /* Controller */,
+			);
+			path = MostPopular;
+			sourceTree = "<group>";
+		};
+		0D0D5A82257A97A100A27FF0 /* AppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				0D0D5A4A257A94D100A27FF0 /* AppDelegate.swift */,
+				0D0D5A4C257A94D100A27FF0 /* SceneDelegate.swift */,
+			);
+			path = AppDelegates;
+			sourceTree = "<group>";
+		};
+		0D0D5A86257A980F00A27FF0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0D0D5A4E257A94D100A27FF0 /* MostPopularController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0D0D5A87257A981900A27FF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D0D5A50257A94D100A27FF0 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0D0D5A88257A982200A27FF0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0D0D5A89257A982C00A27FF0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0D0D5A8A257A984F00A27FF0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0D0D5A58257A94D100A27FF0 /* Info.plist */,
+				0D0D5A55257A94D100A27FF0 /* LaunchScreen.storyboard */,
+				0D0D5A53257A94D100A27FF0 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D0D5A4F257A94D100A27FF0 /* ViewController.swift in Sources */,
+				0D0D5A4F257A94D100A27FF0 /* MostPopularController.swift in Sources */,
 				0D0D5A4B257A94D100A27FF0 /* AppDelegate.swift in Sources */,
 				0D0D5A4D257A94D100A27FF0 /* SceneDelegate.swift in Sources */,
 			);
@@ -437,7 +501,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = NYMostPopularArticles/Info.plist;
+				INFOPLIST_FILE = NYMostPopularArticles/App/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,7 +519,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = NYMostPopularArticles/Info.plist;
+				INFOPLIST_FILE = NYMostPopularArticles/App/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
