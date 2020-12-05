@@ -7,13 +7,19 @@
 
 import Foundation
 
+protocol URLSessionProtocol {
+    func dataTask(with url: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+}
+
+extension URLSession: URLSessionProtocol { }
+
 class RemoteService {
-    let session: URLSession
+    let session: URLSessionProtocol
     let responseQueue: DispatchQueue?
     
-    static let shared = RemoteService(session: .shared, responseQueue: .main)
+    static let shared = RemoteService(session: URLSession.shared, responseQueue: .main)
     
-    init(session: URLSession, responseQueue: DispatchQueue?) {
+    init(session: URLSessionProtocol, responseQueue: DispatchQueue?) {
         self.session = session
         self.responseQueue = responseQueue
     }
