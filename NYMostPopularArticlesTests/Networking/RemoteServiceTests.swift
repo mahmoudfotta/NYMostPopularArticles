@@ -9,28 +9,49 @@ import XCTest
 @testable import NYMostPopularArticles
 
 class RemoteServiceTests: XCTestCase {
-
+    var url: URL!
+    var request: URLRequest!
+    var session: URLSessionMock!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        url = URL(string: "www.apple.com")
+        request = URLRequest(url: url)
+        session = setUpMockSession()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        url = nil
+        request = nil
+        session = nil
+        try super.tearDownWithError()
     }
 
     func testRemoteServiceDispatchFetchesFromCorrectURL() throws {
         //given
-        let url = URL(string: "www.apple.com")!
-        let request = URLRequest(url: url)
-        let session = setUpMockSession()
         let remoteService = RemoteService(session: session, responseQueue: .main)
         let expectation = XCTestExpectation(description: "fetch from correct url www.apple.com")
         
         //when
-        _ = remoteService.dispatch(request) { (result: Result<ArticlesResponse, Error>) in
-            XCTAssertEqual(session.lastRequest?.url, url)
+        _ = remoteService.dispatch(request) { (result: Result<String, Error>) in
+            XCTAssertEqual(self.session.lastRequest?.url, self.url)
             expectation.fulfill()
         }
+        
+        //then
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testRemoteServiceDispatchCallsDataTaskResume() throws {
+        //given
+        let remoteService = RemoteService(session: session, responseQueue: .main)
+        let expectation = XCTestExpectation(description: "calling remoteservice dispatch triggers resume().")
+        
+        //when
+        _ = remoteService.dispatch(request, completionHandler: { (result: Result<String, Error>) in
+            XCTAssertTrue(self.session.dataTask?.resumeWasCalled ?? false)
+            expectation.fulfill()
+        })
         
         //then
         wait(for: [expectation], timeout: 1)
