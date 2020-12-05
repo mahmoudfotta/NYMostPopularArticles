@@ -87,7 +87,29 @@ class RemoteServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
-    func setUpMockSession() -> URLSessionMock {
+    func testRemoteServiceDispatchReturnsError() throws {
+        //given
+        let error = NSError(domain: "", code: 500, userInfo: nil)
+        let session = setUpMockSession(error: error)
+        let remoteService = RemoteService(session: session, responseQueue: .main)
+        let expectation = XCTestExpectation(description: "calling remoteservice dispatch returns correct JSON data")
+        
+        //when
+        _ = remoteService.dispatch(request, completionHandler: { (result: Result<ArticlesResponse, Error>) in
+            switch result {
+            case let .success(articlesResponse):
+                XCTAssertNil(articlesResponse)
+            case let .failure(error):
+                XCTAssertNotNil(error)
+            }
+            expectation.fulfill()
+        })
+        
+        //then
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func setUpMockSession(error: Error? = nil) -> URLSessionMock {
         let testData = """
             {
                 "status": "OK",
@@ -107,6 +129,7 @@ class RemoteServiceTests: XCTestCase {
         let session = URLSessionMock()
         session.testData = testData
         session.testReponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)
+        session.testError = error
         return session
     }
 }
