@@ -9,9 +9,9 @@ import Foundation
 
 class MostPopularPresenter {
     let view: MostPopularView
-    let articlesClient: ArticlesClient
+    let articlesClient: ArticlesService
     
-    init(view: MostPopularView, articlesClient: ArticlesClient) {
+    init(view: MostPopularView, articlesClient: ArticlesService) {
         self.view = view
         self.articlesClient = articlesClient
     }
