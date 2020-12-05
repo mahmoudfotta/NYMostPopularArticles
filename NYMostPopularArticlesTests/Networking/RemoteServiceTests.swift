@@ -57,11 +57,43 @@ class RemoteServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
+    func testRemoteServiceDispatchReturnsCorrectJSONData() throws {
+        //given
+        let remoteService = RemoteService(session: session, responseQueue: .main)
+        let expectation = XCTestExpectation(description: "calling remoteservice dispatch returns correct JSON data")
+        
+        //when
+        _ = remoteService.dispatch(request, completionHandler: { (result: Result<ArticlesResponse, Error>) in
+            XCTAssertNotNil(try? result.get())
+            expectation.fulfill()
+        })
+        
+        //then
+        wait(for: [expectation], timeout: 1)
+    }
+    
     func setUpMockSession() -> URLSessionMock {
+        let testData = """
+            {
+                "status": "OK",
+                "results": [
+                    {
+                        "published_date": "2020-12-04",
+                        "updated": "2020-12-04 22:47:07",
+                        "subsection": "Sunday Review",
+                        "byline": "By Nicholas Kristof",
+                        "title": "The Children of Pornhub",
+                        "abstract": "Why does Canada allow this company to profit off videos of exploitation and assault?"
+                    }
+                ]
+            }
+            """.data(using: .utf8)
         let url = URL(string: "www.apple.com")!
         let session = URLSessionMock()
-        session.testData = "".data(using: .utf8)
+        session.testData = testData
         session.testReponse = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)
         return session
     }
 }
+
+
