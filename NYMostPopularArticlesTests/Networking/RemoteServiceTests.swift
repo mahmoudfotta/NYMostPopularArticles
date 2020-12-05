@@ -72,6 +72,21 @@ class RemoteServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
     
+    func testRemoteServiceDispatchCompletionHandlerReturnsInCorrectDispatchQueue() throws {
+        //given
+        let remoteService = RemoteService(session: session, responseQueue: .main)
+        let expectation = XCTestExpectation(description: "remoteservice dispatch completion handler returns in main queue")
+        
+        //when
+        _ = remoteService.dispatch(request, completionHandler: { (result: Result<ArticlesResponse, Error>) in
+            XCTAssertTrue(Thread.isMainThread)
+            expectation.fulfill()
+        })
+        
+        //then
+        wait(for: [expectation], timeout: 1)
+    }
+    
     func setUpMockSession() -> URLSessionMock {
         let testData = """
             {
